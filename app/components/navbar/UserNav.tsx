@@ -1,11 +1,20 @@
 'use client'
 
 import { useState } from "react"
+
 import MenuLink from "./MenuLink"
+import LogoutButtonn from '../LogoutButton'
+
 import useLoginModal from "@/app/hooks/useLoginModal"
 import useSignupModal from "@/app/hooks/useSignupModal"
 
-const UserNav = () => {
+interface UserNavProps {
+    userId?: string | null
+}
+
+const UserNav: React.FC<UserNavProps> = ({
+    userId
+}) => {
     const singupModal = useSignupModal()
     const loginModal = useLoginModal()
     const [isOpen, setIsOpen] = useState(false)
@@ -27,21 +36,27 @@ const UserNav = () => {
 
             {isOpen && (
                 <div className="w-[200px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex-col cursor-pointer">
-                    <MenuLink 
-                        label='Log in'
-                        onClick={() => {
-                            setIsOpen(false)
-                            loginModal.open()
-                        }}
-                    />
+                    {userId ? (
+                        <LogoutButtonn />
+                    ): (
+                        <>
+                            <MenuLink
+                                label='Log in'
+                                onClick={() => {
+                                    setIsOpen(false)
+                                    loginModal.open()
+                                }}
+                            />
 
-                    <MenuLink 
-                        label='Sing up'
-                        onClick={() => {
-                            setIsOpen(false)
-                            singupModal.open()
-                        }}
-                    />
+                            <MenuLink 
+                                label='Sing up'
+                                onClick={() => {
+                                    setIsOpen(false)
+                                    singupModal.open()
+                                }}
+                            />
+                        </>
+                    )}
                 </div>
             )}
         </div>
