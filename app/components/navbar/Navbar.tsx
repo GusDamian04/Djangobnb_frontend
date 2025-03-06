@@ -1,20 +1,22 @@
-import Image from 'next/image'
-import Link from "next/link"
+import Image from 'next/image';
+import Link from 'next/link';
 
-import SearchFilters from './SearchFilters'
-import UserNav from './UserNav'
-import { getUserId } from '@/app/lib/actions'
-import AddPropertyButton from './AddPropertyButton'
+import SearchFilters from './SearchFilters';
+import UserNav from './UserNav';
+import { getUserId } from '@/app/lib/actions';
+import AddPropertyButton from './AddPropertyButton';
 
 const Navbar = async () => {
     const userId = await getUserId();
 
+    console.log('userId:', userId);
+
     return (
         <nav className="w-full fixed top-0 left-0 py-6 border-b bg-white z-10">
-            <div className="max-w-[1500] mx-auto px-6">
+            <div className="max-w-[1500px] mx-auto px-6">
                 <div className="flex justify-between items-center">
                     <Link href="/">
-                        <Image 
+                        <Image
                             src="/logo.png"
                             alt="DjangoBnb logo"
                             width={180}
@@ -22,14 +24,17 @@ const Navbar = async () => {
                         />
                     </Link>
 
-                    <div className='flex space-x-6'>
+                    <div className="flex space-x-6">
                         <SearchFilters />
                     </div>
 
-                    <div className='flex items-center space-x-6'>
-                    <AddPropertyButton />
-                        <UserNav
-                            userID={userId}
+                    <div className="flex items-center space-x-6">
+                        <AddPropertyButton 
+                            userId={userId}
+                        />
+
+                        <UserNav 
+                            userId={userId}
                         />
                     </div>
                 </div>
@@ -38,4 +43,4 @@ const Navbar = async () => {
     )
 }
 
-export default Navbar
+export default Navbar;
