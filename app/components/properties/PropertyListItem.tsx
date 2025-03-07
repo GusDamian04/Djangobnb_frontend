@@ -1,23 +1,30 @@
-import Image from "next/image"
-import { PropertyType } from "./PropertyList"
+import Image from "next/image";
+import { PropertyType } from "./PropertyList";
+import { useRouter } from "next/navigation";
 
 interface PropertyProps {
-    property: PropertyType
+    property: PropertyType,
 }
 
 const PropertyListItem: React.FC<PropertyProps> = ({
-    property
+    property,
 }) => {
+    const router = useRouter();
+
     return (
-        <div className="cursor-pointer">
+        <div 
+            className="cursor-pointer"
+            onClick={() => router.push(`/properties/${property.id}`)}
+        >
             <div className="relative overflow-hidden aspect-square rounded-xl">
                 <Image
                     fill
                     src={property.image_url}
-                    sizes="(mx-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
+                    sizes="(max-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
                     className="hover:scale-110 object-cover transition h-full w-full"
-                    alt="Beach House"
+                    alt="Beach house"
                 />
+
             </div>
 
             <div className="mt-2">
@@ -27,9 +34,8 @@ const PropertyListItem: React.FC<PropertyProps> = ({
             <div className="mt-2">
                 <p className="text-sm text-gray-500"><strong>${property.price_per_night}</strong> per night</p>
             </div>
-            
         </div>
     )
 }
 
-export default PropertyListItem
+export default PropertyListItem;
