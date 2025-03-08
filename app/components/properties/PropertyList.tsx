@@ -19,9 +19,9 @@ interface PropertyListProps {
 const PropertyList:React.FC<PropertyListProps> = ({
     landlord_id
 }) => {
-    const [properties, setProperties] = useState<PropertyType[]>([])
+    const [properties, setProperties] = useState<PropertyType[]>([]);
 
-    const getPropertes = async () => {
+    const getProperties = async () => {
         let url = '/api/properties/';
 
         if (landlord_id) {
@@ -34,13 +34,13 @@ const PropertyList:React.FC<PropertyListProps> = ({
     }
 
     useEffect(() => {
-        getPropertes()
+        getProperties()
     }, [])
 
     return (
         <>
             {properties.map((property) => {
-                return(
+                return (
                     <PropertyListItem 
                         key={property.id}
                         property={property}
@@ -51,4 +51,4 @@ const PropertyList:React.FC<PropertyListProps> = ({
     )
 }
 
-export default PropertyList
+export default PropertyList;

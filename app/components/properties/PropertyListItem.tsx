@@ -4,10 +4,12 @@ import { useRouter } from "next/navigation";
 
 interface PropertyProps {
     property: PropertyType,
+    markFavorite?: (is_favorite: boolean) => void;
 }
 
 const PropertyListItem: React.FC<PropertyProps> = ({
     property,
+    markFavorite
 }) => {
     const router = useRouter();
 
@@ -24,7 +26,6 @@ const PropertyListItem: React.FC<PropertyProps> = ({
                     className="hover:scale-110 object-cover transition h-full w-full"
                     alt="Beach house"
                 />
-
             </div>
 
             <div className="mt-2">
