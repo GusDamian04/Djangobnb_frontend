@@ -15,7 +15,7 @@ const LandlordDetailPage = async ({ params }: { params: { id: string }}) => {
                 <aside className="col-span-1 mb-4">
                     <div className="flex flex-col items-center p-6 rounded-xl border border-gray-300 shadow-xl">
                         <Image
-                            src={landlord.avatar_url || "/default-avatar.png"}
+                            src={landlord.avatar_url}
                             width={200}
                             height={200}
                             alt="Landlrod name"
@@ -25,7 +25,10 @@ const LandlordDetailPage = async ({ params }: { params: { id: string }}) => {
                         <h1 className="mt-6 text-2xl">{landlord.name}</h1>
 
                         {userId != params.id && (
-                            <ContactButton />
+                            <ContactButton 
+                                userId={userId}
+                                landlordId={params.id}
+                            />
                         )}
                     </div>
                 </aside>
