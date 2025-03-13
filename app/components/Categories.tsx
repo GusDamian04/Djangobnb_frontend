@@ -31,7 +31,7 @@ const Categories = () => {
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == '' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
             >
                 <Image
-                    src="/icn_category_beach.jpeg"
+                    src="/icn_category_all.jpeg"
                     alt="Category - Beach"
                     width={20}
                     height={20}
@@ -59,7 +59,7 @@ const Categories = () => {
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'villas' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
             >
                 <Image
-                    src="/icn_category_beach.jpeg"
+                    src="/icn_category_villas.jpeg"
                     alt="Category - Beach"
                     width={20}
                     height={20}
@@ -73,7 +73,7 @@ const Categories = () => {
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'cabins' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
             >
                 <Image
-                    src="/icn_category_beach.jpeg"
+                    src="/icn_category_cabins.jpeg"
                     alt="Category - Beach"
                     width={20}
                     height={20}
@@ -87,7 +87,7 @@ const Categories = () => {
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'tiny_homes' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
             >
                 <Image
-                    src="/icn_category_beach.jpeg"
+                    src="/icn_category_tiny_homes.jpeg"
                     alt="Category - Beach"
                     width={20}
                     height={20}
